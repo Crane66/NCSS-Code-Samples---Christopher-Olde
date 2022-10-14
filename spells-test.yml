@@ -1,0 +1,392 @@
+magic-items:
+ #golden head
+ magic-arrow-head:
+  type: "flint"
+  name: "§eMagic Arrow Head"
+  lore:
+   - "The magic arrow head can"
+   - "multiply into a volly of"
+   - "arrows."
+  unbreakable: true
+  enchants:
+   - "multishot 1"
+ 
+ #MagicMissile
+ MagicMissileTorch:
+  type: "redstone_torch"
+  name: "§6Missile Torch"
+  lore:
+   - "The Missile Torch lights a"
+   - "spark that creates three"
+   - "magic missiles that home in"
+   - "on your enemies"
+  unbreakable: true
+  enchants:
+   - "flame 1"
+
+ #Double Slashing Sword
+ Double-Slashing-Sword:
+  type: "iron_sword"
+  name: "§1Double Slashing Sword"
+  lore:
+   - "This Strange Sword is"
+   - "much lighter than most"
+   - "swords. It is light"
+   - "enough to take a second"
+   - "strike after the first"
+  unbreakable: true 
+  attributes: 
+  - generic_attack_damage 10 add_number HAND
+  fake-glint: true
+
+ Magic-Crystal: 
+  type: "amethyst_cluster"
+  name: "§5Crystal Beam"
+  lore:
+   - "A Powerful magic radiates"
+   - "from this crystal. When"
+   - "fully Charged unleach the"
+   - "power upon your foes."
+  unbreakable: true
+  enchants:
+   - "power 2"
+  
+ Entanglement-Vines: 
+  type: "vine"
+  name: "§2Entanglement Vines"
+  lore:
+   - "Create a wall of vines to"
+   - "slow down your enemies"
+  unbreakable: true
+  enchants:
+   - "thorns 1"
+
+
+ Acid-Ball: 
+  type: "slime_ball"
+  name: "§AAcid Ball"
+  lore:
+   - "Burn your enemies with"
+   - "acid"
+  unbreakable: true
+  enchants:
+   - "unbreaking 1"
+
+
+
+
+
+
+arrow-volley:
+    spell-class: ".targeted.VolleySpell"
+    name: arrow-volley
+    cast-item: magic-arrow-head
+    cooldown: 15
+    remove-delay: 10
+    arrows: 30
+    range: 500
+    speed: 20
+    spread: 300
+    shoot-interval: 1
+    cost:
+        - mana 20
+    str-cost: 20 mana
+
+
+
+Magic-Missile-balls:
+    spell-class: ".targeted.HomingProjectileSpell"
+    name: "Magic Missile"
+    cast-item: MagicMissileTorch
+    range: 100
+    projectile-type: Smallfireball
+    velocity: 0.75
+    max-duration: 10
+    hit-radius: 2
+    vertical-hit-radius: 2
+    tick-interval: 1
+    special-effect-interval: 1
+    relative-offset: 1,1,0
+    target-relative-offset: 0,1,0
+    can-target: players,nonplayers
+    spell: magicmissledmg
+    effects:
+        eff1:
+            position: target
+            effect: particles
+            height-offset: 1
+            particle-name: explosion_large
+            horiz-spread: 0.25
+            vert-spread: 0.25
+            speed: 0
+            count: 5
+        eff2:
+            position: special
+            effect: particles
+            particle-name: redstone
+            color: E10707
+            horiz-spread: 0.1
+            vert-spread: 0.1
+            count: 10
+        eff3:
+            position: special
+            effect: particles
+            particle-name: redstone
+            color: 622929
+            horiz-spread: 0.01
+            vert-spread: 0.01
+            count: 100
+        eff4:
+            position: special
+            effect: particles
+            particle-name: redstone
+            color: D34F44
+            horiz-spread: 0.2
+            vert-spread: 0.2
+            count: 10
+magicmissledmg:
+    spell-class: ".targeted.PainSpell"
+    helper-spell: true
+    damage: 1
+    ignore-armor: true
+    check-plugins: true
+    can-target: players,nonplayers
+
+
+
+
+
+
+
+
+
+DoubleSwordSlash: 
+  spell-class: ".MultiSpell"
+  cast-item: Double-Slashing-Sword
+  spells: 
+    - swordslash1
+    - DELAY 6
+    - swordslash2
+swordslash1:
+    spell-class: ".instant.ParticleProjectileSpell"
+    change-pitch: true
+    controllable: false
+    projectile-velocity: 20
+    tick-interval: 1
+    max-duration: 0.2
+    max-distance: 2
+    projectile-turn: -40
+    projectile-gravity: 1
+    special-effect-interval: 1
+    hit-non-players: true
+    stop-on-hit-entity: true
+    stop-on-hit-ground: true
+    relative-offset: 0.25,2,1
+    spell: DBSDMG
+    effects:
+        eff1:
+            position: special
+            effect: particles
+            particle-name: sweep_attack
+            color: FF0000
+            horiz-spread: 0.05
+            vert-spread: 0.05
+            size: 1
+            count: 1
+swordslash2:
+    spell-class: ".instant.ParticleProjectileSpell"
+    change-pitch: true
+    controllable: false
+    projectile-velocity: 20
+    tick-interval: 1
+    max-duration: 0.2
+    max-distance: 2
+    projectile-turn: 40
+    projectile-gravity: 1
+    special-effect-interval: 1
+    stop-on-hit-entity: true
+    hit-non-players: true
+    stop-on-hit-ground: true
+    relative-offset: 0.25,2,-1
+    spell: DBSDMG
+    effects:
+        eff1:
+            position: special
+            effect: particles
+            particle-name: sweep_attack
+            color: FF0000
+            horiz-spread: 0.05
+            vert-spread: 0.05
+            size: 1
+            count: 1
+DBSDMG: 
+ spell-class: ".targeted.PainSpell"
+ helper-spell: true
+ damage: 100
+ ignore-armor: false
+ check-plugins: true
+
+
+
+
+
+
+
+
+
+
+Crystal Beam: 
+  spell-class: ".MultiSpell"
+  cast-item: Magic-Crystal
+  spells: 
+    - Charge1
+    - DELAY 10
+    - Charge1
+    - DELAY 10
+    - Charge1
+    - DELAY 10
+    - Charge1
+    - DELAY 20
+    - Charge2
+    - DELAY 30
+    - Charge3
+    - DELAY 30 
+    - Charge4
+Charge1:
+    spell-class: ".instant.BeamSpell"
+    beam-width: 2
+    y-offset: 0
+    max-distance: 15
+    interval: 1
+    effects:
+      Flame:
+        position: special
+        effect: particles
+        particle-name: redstone 
+        color: FF00FF
+        horiz-spread: 0.01
+        vert-spread: 0.01
+        speed: 0.01
+        count: 10
+Charge2:
+    spell-class: ".instant.BeamSpell"
+    beam-width: 2
+    y-offset: 0
+    max-distance: 20
+    interval: 1
+    effects:
+      Flame:
+        position: special
+        effect: particles
+        particle-name: redstone 
+        color: FF00FF
+        horiz-spread: 0.05
+        vert-spread: 0.05
+        speed: 0.01
+        count: 20
+
+Charge3:
+    spell-class: ".instant.BeamSpell"
+    beam-width: 2
+    y-offset: 0
+    max-distance: 20
+    interval: 1
+    effects:
+      Flame:
+        position: special
+        effect: particles
+        particle-name: redstone 
+        color: FF00FF
+        horiz-spread: 0.2
+        vert-spread: 0.2
+        speed: 0.01
+        count: 100
+Charge4:
+    spell-class: ".instant.BeamSpell"
+    beam-width: 2
+    y-offset: 0
+    max-distance: 25
+    spell: crystalbomb
+    interval: 1
+    effects:
+      Flame:
+        position: special
+        effect: particles
+        particle-name: redstone 
+        color: FF00FF
+        horiz-spread: 0.5
+        vert-spread: 0.5
+        speed: 0.01
+        count: 200    
+
+crystalbomb:
+    spell-class: ".targeted.ParticleCloudSpell"
+    particle-name: redstone
+    size: 5
+    dust-color: FF00FF
+    wait-time-ticks: 20
+    duration-ticks: 60
+    duration-ticks-on-use: 0
+    reapplication-delay-ticks: 10
+    radius: 1
+    radius-on-use: 0
+    radius-per-tick: 0.1
+    potion-effects:
+        - slowness 40 1 true true true
+        - wither 300 2 true true true 
+        - instant_damage 0 3 true true true 
+
+
+
+wall:
+    spell-class: ".instant.WallSpell"
+    name: wall
+    cast-item: Entanglement-Vines
+    cooldown: 15
+    range: 5
+    wall-width: 5
+    wall-height: 4
+    wall-types:
+        - moss_block
+        - flowering_azalea_leaves
+        - azalea_leaves
+        - mossy_cobblestone
+    wall-duration: 100
+
+
+
+
+Acid-ball-projectile:
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: Acid-Ball
+    cooldown: 15
+    velocity: 1
+    projectile-gravity: 0.5
+    max-distance: 20
+    max-duration: 10
+    spell-on-hit-ground: Acid
+    effects:
+        eff1:
+            position: special
+            effect: particles
+            particle-name: REDSTONE
+            color: 00FF00
+            horiz-spread: 0.1
+            vert-spread: 0.1
+            size: 3
+            count: 25
+Acid:
+    spell-class: ".targeted.ParticleCloudSpell"
+    particle-name: redstone
+    dust-color: 00FF00
+    size: 2
+    wait-time-ticks: 10
+    duration-ticks: 100
+    duration-ticks-on-use: 0
+    reapplication-delay-ticks: 10
+    use-gravity: true
+    radius: 1
+    radius-on-use: 0
+    radius-per-tick: 0.03
+    potion-effects:
+        - wither 40 1 false false false

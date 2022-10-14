@@ -1,0 +1,83 @@
+menu-settings:
+   name: '&2Guard'
+   rows: 1
+   left-click: false
+   right-click: false
+
+slot1:
+  MATERIAL: blue stained glass pane
+  POSITION-X: 1
+  POSITION-Y: 1
+  NAME: ''
+  LORE:
+   - 'Im the head Guard of'
+   - 'the DarksEdge defence.'
+  ACTIONS:
+    - ''
+slot2:
+  MATERIAL: blue stained glass pane
+  POSITION-X: 2
+  POSITION-Y: 1
+  NAME: ''
+  LORE: 
+   - 'We are having trouble'
+   - 'with a nearby warship'
+  ACTIONS:
+    - ''
+slot3:
+  MATERIAL: blue stained glass pane
+  POSITION-X: 3
+  POSITION-Y: 1
+  NAME: ''
+  LORE: 
+   - 'Undead Soldiers have taken'
+   - 'it over, and we need help'
+   - 'clearing it out'
+  ACTIONS:
+    - ''
+slot4:
+  MATERIAL: blue stained glass pane
+  POSITION-X: 4
+  POSITION-Y: 1
+  NAME: ' '
+  LORE: 
+   - 'Ill take you to the ship'
+   - 'if you help, and you can keep'
+   - 'anything you find'  
+  ACTIONS:
+    - ''
+slot5:
+  MATERIAL: gray stained glass pane
+  POSITION-X: 5
+  POSITION-Y: 1
+  NAME: ' '
+  ACTIONS:
+    - ''
+slot6:
+  MATERIAL: gray stained glass pane
+  POSITION-X: 6
+  POSITION-Y: 1
+  NAME: ' '
+  ACTIONS:
+    - ''
+slot7:
+  MATERIAL: gray stained glass pane
+  POSITION-X: 7
+  POSITION-Y: 1
+  NAME: ' '
+  ACTIONS:
+    - ''
+slot8:
+  MATERIAL: green stained glass pane
+  POSITION-X: 8
+  POSITION-Y: 1
+  NAME: '&2Accept'
+  ACTIONS:
+    - 'tp @s 2842 206 2312'
+slot9:
+  MATERIAL: red stained glass pane
+  POSITION-X: 9
+  POSITION-Y: 1
+  NAME: '&4Deny'
+  ACTIONS:
+    - ''

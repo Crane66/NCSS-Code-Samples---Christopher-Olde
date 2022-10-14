@@ -1,0 +1,286 @@
+#all magic items
+magic-items:
+ #Pheonix Feather
+ Pheonix-Feather: 
+  type: "Feather"
+  name: "§4Pheonix Feather"
+  lore:
+   - "Once dropped from the long"
+   - "extinct Pheonix this feather"
+   - "will enable you to take a fiery"
+   - "leap."
+  unbreakable: true
+  enchants:
+   - "flame 1"
+  
+  
+ RodOfLightning: 
+  type: "lightning_rod"
+  name: "Rod Of Lightning"
+  lore:
+   - "A Rod made from the purest"
+   - "metal ever created. Call down"
+   - "bursts of lightning strikes"
+   - "at will."
+  unbreakable: true
+  enchants:
+   - "power 1"
+
+ 
+ #Flame Wand
+ Flame-Wand: 
+  type: "blaze_rod"
+  name: "§4Fire Wand"
+  lore:
+   - "Infused with the eternal"
+   - "flame from the Fire Lord"
+   - "shoot blasts of pure heat"
+   - "at your opponents."
+  unbreakable: true
+  enchants: 
+  - "Fire_aspect 1"
+ 
+ #Water Orb
+ Orb-of-water:
+  type: "heart_of_the_sea"
+  name: "§1Orb of Water"
+  lore: 
+   - "A floating Orb of"
+   - "magic water, that"
+   - "will circle the user"
+   - "and protect them"
+  unbreakeable: true
+  enchants:
+  - "riptide 1"
+
+
+ #Quick-strike-wand
+ Quick-Strike-Wand:
+  type: "stick"
+  name: "§2Quick Strike Wand"
+  lore:
+   - "A magical wand carved"
+   - "from the wood of the"
+   - "last magical tree. this"
+   - "wand will send out a"
+   - "magical strike at your"
+   - "foes"
+  unbreakable: true
+  enchants: 
+  - "feather_falling 1"
+
+
+
+
+
+
+
+
+#Pheonix Feather
+Pheonix-Leap:
+     spell-class: ".instant.LeapSpell"
+     forward-velocity: 3
+     upward-velocity: 10
+     cast-item: "Pheonix-Feather"
+     cooldown: 5
+     effects:
+          Particles:
+               effect: particles
+               position: caster
+               particle-name: flame
+               count: 100
+               speed: 0.2
+               horiz-spread: 1
+               vert-spread: 1
+          Sound:
+               effect: sound
+               position: caster
+               sound: entity.generic.extinguish_fire
+               pitch: 1.5
+               volume: 2
+
+
+
+Rod-Of-Lightning:
+    spell-class: ".TargetedMultiSpell"
+    cast-item: "RodOfLightning"
+    cooldown: 10
+    spells:
+        - lightning
+        - DELAY 10
+        - lightning
+        - DELAY 10
+        - lightning
+        - DELAY 10
+        - lightning
+        - DELAY 10
+        - lightning
+lightning:
+    spell-class: ".targeted.LightningSpell"
+    helper-spell: true
+    range: 20
+    additional-damage: 0
+    no-damage: false
+    require-entity-target: false
+    check-plugins: true
+
+
+
+#Flame Wand
+Flame_Wand:
+    spell-class: ".instant.BeamSpell"
+    spell: flameTarget
+    cast-item: "Flame-Wand"
+    cooldown: 2
+    beam-width: 2
+    y-offset: 0
+    max-distance: 20
+    interval: 1
+    effects:
+      particle:
+        position: special
+        effect: particles
+        particle-name: flame
+        horiz-spread: 0.1
+        vert-spread: 0.1
+        speed: 0.02
+        count: 10
+      sound:
+        position: special
+        effect: sound
+        sound: entity.generic.burn
+        volume: 1
+        pitch: 1
+flameTarget:
+    spell-class: ".targeted.CombustSpell"
+    fire-ticks: 40
+    fire-tick-damage: 2
+    prevent-immunity: true
+    target-players: true
+    check-plugins: true
+
+
+Orb-of-water:
+    spell-class: ".MultiSpell"
+    name: "Orb Of Water"
+    cast-item: "Orb-of-water"
+    cooldown: 20
+    str-cost: "30 Mana"
+    spells:
+        - Water_Orb
+
+Water_Orb:
+    spell-class: ".targeted.OrbitSpell"
+    helper-spell: true
+    target-self: true
+    horiz-expand-delay: 2
+    horiz-expand-radius: 0
+    vert-expand-delay: 2
+    vert-expand-radius: 0
+    start-horiz-offset: 0
+    hit-radius: 1.25
+    vertical-hit-radius: 1.25
+    seconds-per-revolution: 1
+    orbit-radius: 2
+    tick-interval: 1
+    max-duration: 10
+    y-offset: 0.25
+    stop-on-hit-entity: true
+    stop-on-hit-ground: true
+    can-hit:
+        - players
+        - nonplayers
+    spell-on-hit-entity: entity_damage
+    spell-on-hit-ground: hit_ground
+    effects:
+        eff1:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 0101DF
+                iterations: 1
+                radius: 0.25
+                particles: 15
+                period: 0
+                visibleRange: 100
+        eff2:
+            position: special
+            effect: effectlib
+            effectlib:
+                class: SphereEffect
+                particle: REDSTONE
+                color: 2BC3C2
+                iterations: 1
+                radius: 0.5
+                particles: 15
+                period: 0
+                visibleRange: 100
+
+hit_ground:
+    spell-class: ".targeted.DummySpell"
+    helper-spell: true
+    effects:
+        eff1:
+            position: target
+            effect: particles
+            particle-name: explosion_large
+            horiz-spread: 0.5
+            vert-spread: 0.5
+            count: 5
+            speed: 0
+
+entity_damage:
+    spell-class: ".targeted.PainSpell"
+    helper-spell: true
+    damage: 3
+    check-plugins: true
+    ignore-armor: false
+    can-target: players,nonplayers
+    effects:
+        eff1:
+            position: target
+            height-offset: 0.75
+            effect: particles
+            particle-name: explosion_large
+            horiz-spread: 0.3
+            vert-spread: 0.3
+            count: 2
+            speed: 0
+
+
+  
+  #Quick Stike Wand
+Quick-StrikeWand:
+      spell-class: ".instant.BeamSpell"
+      spell: StrikeDMG
+      cast-item: "Quick-Strike-Wand"
+      cooldown: 2
+      beam-width: 2
+      y-offset: 1
+      max-distance: 20
+      interval: 1
+      effects:
+        particle:
+          position: special
+          effect: particles
+          particle-name: falling_spore_blossom
+          horiz-spread: 0.1
+          vert-spread: 0.1
+          speed: 0.02
+          count: 10
+        sound:
+          position: special
+          effect: sound
+          sound: item.axe.strip
+          volume: 1
+          pitch: 1
+  
+StrikeDMG:
+      spell-class: ".targeted.PainSpell"
+      helper-spell: true
+      damage: 2
+      check-plugins: true
+      ignore-armor: false
+      can-target: players,nonplayers

@@ -1,0 +1,66 @@
+menu-settings:
+   name: '&4Travel'
+   rows: 1
+
+   open-with-item:
+   MATERIAL: clock
+   left-click: false
+   right-click: false
+   commands:
+   - 'Travel'
+
+Island-village-dock:
+  MATERIAL: grass block
+  POSITION-X: 1
+  POSITION-Y: 1
+  NAME: '&3Spawn Dock'
+  ACTIONS:
+    - 'Tp @p 877 27 1095'
+  LORE:
+   - 'Go to the Spawn Island Docks'
+   - ''
+   - '&4(Costs 2 Emeralds)'
+  REQUIRED-ITEMS:
+   - 'emerald, 2'
+
+Stormfury Port: 
+  MATERIAL: cocoa beans
+  POSITION-X: 2
+  POSITION-Y: 1
+  NAME: '&2Stormfury Port'
+  ACTIONS:
+   - 'tp @p 1029 105 2055'
+  LORE:
+   - 'Go to Stormfury Port'
+   - ''
+   - '&4(Costs 4 Emeralds)'
+  REQUIRED-ITEMS:
+   - 'emerald, 4'
+
+Darks Edge Port:
+  MATERIAL: deepslate_coal_ore
+  POSITION-X: 3
+  POSITION-Y: 1
+  NAME: '&1DarksEdge Port'
+  LORE:
+    - 'Teleport to the DarksEdge Port'
+    - ''
+    - '&4(Costs 10 Emeralds)'
+  REQUIRED-ITEMS:
+   - 'emerald, 10'
+  ACTIONS:
+    - 'tp @p 2704 194 2529'
+
+Ancient_Caverns:
+  MATERIAL: budding_amethyst
+  POSITION-X: 4
+  POSITION-Y: 1
+  NAME: '&3Ancient Caverns'
+  ACTIONS:
+    - 'Tp @p -1968 55 1862'
+  LORE:
+   - 'Go to the Ancient Caverns'
+   - ''
+   - '&4(Costs 5 Emeralds)'
+  REQUIRED-ITEMS:
+   - 'emerald, 5'

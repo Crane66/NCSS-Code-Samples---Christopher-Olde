@@ -1,0 +1,117 @@
+menu-settings:
+
+  # REQUIRED
+  # Appears as the title of the menu.
+  name: '&5Warp'
+
+  # REQUIRED
+  # The number of rows in the menu.
+  rows: 2
+
+  # OPTIONAL
+  # Set which commands a player can execute to open the menu.
+  commands:
+  - 'warp'
+
+  # OPTIONAL
+  # How frequently the menu will be refreshed, in seconds.
+  # Useful if you have placeholders in icon descriptions.
+  auto-refresh: 5
+
+
+  # OPTIONAL
+  # The menu will open only when right-clicking with a compass.
+  open-with-item:
+    material: brown_dye
+    NAME: 'Admin'
+    left-click: false
+    right-click: true
+
+Survival:
+  MATERIAL: red bed
+  POSITION-X: 1
+  POSITION-Y: 1
+  NAME: '&aSurvival'
+  LORE:
+    - 'Teleport to the survival world'
+  ENCHANTMENTS:
+    - durability, 1
+  ACTIONS:
+    - 'tp @p 1000 10 1000'
+
+Specialists:
+  MATERIAL: villager spawn egg
+  POSITION-X: 2
+  POSITION-Y: 1
+  NAME: '&7Specialists'
+  LORE:
+    - 'Teleport to the Specialists'
+  ENCHANTMENTS:
+    - durability, 1 
+  ACTIONS:
+    - 'tp @p -200 32 -200'
+
+Stormfury Port:
+  MATERIAL: cocoa_beans
+  POSITION-X: 3
+  POSITION-Y: 1
+  NAME: '&2Stormfury Port'
+  LORE:
+    - 'Teleport to Stormfury Port' 
+  ACTIONS:
+    - 'tp @p 950 103 2063'
+    
+Magma Islands:
+  MATERIAL: Magma_block
+  POSITION-X: 4
+  POSITION-Y: 1
+  NAME: '&2Magma Islands'
+  LORE:
+    - 'Teleport to the Magma islands'
+  ENCHANTMENTS:
+    - durability, 1 
+  ACTIONS:
+    - 'tp @p 1700 185 2427'
+
+Darks Edge:
+  MATERIAL: deepslate_coal_ore
+  POSITION-X: 5
+  POSITION-Y: 1
+  NAME: '&2Darks Edge'
+  LORE:
+    - 'Teleport to Darks Edge'
+  ACTIONS:
+    - 'tp @p 2432 163 2506'
+
+
+Inconstruction:
+  MATERIAL: anvil
+  POSITION-X: 6
+  POSITION-Y: 1
+  NAME: '&1In Construction'
+  LORE:
+    - 'Being build by waffles'
+  ACTIONS:
+    - 'tp @p -2000 121 -2000'
+
+
+Cave:
+  MATERIAL: budding_amethyst
+  POSITION-X: 7
+  POSITION-Y: 1
+  NAME: '&8Cave'
+  ENCHANTMENTS:
+    - durability, 1
+  LORE:
+    - 'Teleport to the Caves'
+  ACTIONS:
+    - 'tp @p -1957 55 1851'
+    
+
+close-without-actions:
+  MATERIAL: redstone lamp
+  POSITION-X: 9
+  POSITION-Y: 2
+  NAME: '&6Close the menu'
+  LORE:
+    - 'Exit'

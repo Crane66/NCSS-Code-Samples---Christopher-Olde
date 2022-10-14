@@ -1,0 +1,79 @@
+#menu settings
+menu-settings: 
+ name: "Magic Items"
+ rows: 2
+ commands: 
+ - MagicItems
+ auto-refresh: 5
+
+
+#items 
+Pheonix-Feather:
+  MATERIAL: Feather
+  POSITION-X: 1
+  POSITION-Y: 1
+  NAME: '§4Pheonix Feather'
+  LORE:
+   - "Once dropped from the long"
+   - "extinct Pheonix this feather"
+   - "will enable you to take a fiery"
+   - "leap."
+   - "§4Costs 5 Emeralds"
+  ENCHANTMENTS:
+    - durability, 1
+  REQUIRED-ITEMS:
+  - 'emerald, 5'
+  ACTIONS:
+    - 'ms magicitem Pheonix-Feather'
+
+Orb-of-water:
+  MATERIAL: heart_of_the_sea
+  POSITION-X: 2
+  POSITION-Y: 1
+  NAME: '§1Orb of Water'
+  LORE:
+   - "A floating Orb of"
+   - "magic water, that"
+   - "will circle the user"
+   - "and protect them"
+   - "§4Costs 10 Emeralds"
+  ENCHANTMENTS:
+    - durability, 1
+  REQUIRED-ITEMS:
+  - 'emerald, 10'
+  ACTIONS:
+    - 'ms magicitem Orb-of-water'
+
+Flame-Bow:
+  MATERIAL: Bow
+  POSITION-X: 3
+  POSITION-Y: 1
+  NAME: '§4Flame Bow'
+  LORE:
+   - "Set Fire to your enermies"
+   - "from a far"
+   - "§4Costs 15 Emeralds"
+  ENCHANTMENTS:
+    - durability, 1
+  REQUIRED-ITEMS:
+  - 'emerald, 15'
+  ACTIONS:
+    - 'ms magicitem Flame-Bow'
+
+RodOfLightning:
+  MATERIAL: lightning_rod
+  POSITION-X: 4
+  POSITION-Y: 1
+  NAME: '§1Rod Of Lightning'
+  LORE:
+   - "A Rod made from the purest"
+   - "metal ever made. Call down"
+   - "bursts of lightning strikes"
+   - "at will."
+   - "§4Costs 20 emeralds"
+  ENCHANTMENTS:
+    - durability, 1
+  REQUIRED-ITEMS:
+  - 'emerald, 20'
+  ACTIONS:
+    - 'ms magicitem RodOfLightning'

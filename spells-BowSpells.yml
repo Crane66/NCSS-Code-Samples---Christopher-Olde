@@ -1,0 +1,45 @@
+magic-items:
+ Flame-Bow: 
+  type: "Bow"
+  name: "§4Flame Bow"
+  lore:
+   - "Set Fire to your enermies"
+   - "from a far"
+  unbreakable: true
+  enchants:
+   - "fire_aspect 1"
+ 
+ Lightning-Bow: 
+  type: "Bow"
+  name: "§9Lightning Bow"
+  lore: 
+   - "Bring the power of lightning"
+   - "down upon your foes"
+
+
+FlameBow:
+    spell-class: ".BowSpell"
+    bow-name: "§4Flame Bow"
+    name: "FlameBow"
+    bindable: false
+    cancel-shot: false
+    require-bind: false
+    remove-arrow: true
+    cancel-shot-on-fail: false
+    spell-on-hit-entity: Light-on-hit
+    effects:
+        trail:
+            position: projectile
+            effect: effectlibentity
+            effectlib:
+                class: ParticleEffect
+                particle: flame
+                particle_count: 1
+                iterations: 100
+                period: 0.01
+Light-on-hit:
+    spell-class: ".targeted.CombustSpell"
+    helper-spell: true
+    fire-ticks: 60
+    fire-tick-damage: 1
+    prevent-immunity: true
